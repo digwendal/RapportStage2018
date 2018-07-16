@@ -1,0 +1,46 @@
+%%
+%% Author: gdidot
+%% 7/13/18
+%%
+
+% Preamble
+\documentclass[11pt, a4paper, pdftex]{article}
+\pagestyle{headings}
+\setlength{\oddsidemargin}{5mm}
+\setlength{\evensidemargin}{5mm}
+
+% Packages
+\usepackage{a4wide}
+\usepackage[french]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{titlepages}
+
+%Custom command
+\newcommand\AtUpperLeftCorner[3]{%
+\put(\LenToUnit{#1},\LenToUnit{\dimexpr\paperheight-#2}){\blap{#3}}%
+}
+
+\newcommand\AtUpperRightCorner[3]{%
+\put(\LenToUnit{\dimexpr\paperwidth-#1},\LenToUnit{\dimexpr\paperheight-#2}){\blap{\llap{#3}}}%
+}
+
+% Document
+\begin{document}
+    %Page de garde
+    \thispagestyle{empty}
+    \center \LARGE \textbf{\uppercase{Portage de Malai pour l'environement Web}} \\
+    \normalsize\center{\today}
+    \AtUpperLeftCorner{1.5cm}{1cm}{\includegraphics[width=4cm]{../assets/logo_istic.png}}
+    \newpage
+    %Page count
+    \setcounter{page}{1}
+
+
+    \paragraph{ReTest}
+
+    %Biblio
+    \bibliography{main}
+    \bibliographystyle{plain}
+
+\end{document}
