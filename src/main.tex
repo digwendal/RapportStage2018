@@ -5,42 +5,83 @@
 
 % Preamble
 \documentclass[11pt, a4paper, pdftex]{article}
-\pagestyle{headings}
-\setlength{\oddsidemargin}{5mm}
-\setlength{\evensidemargin}{5mm}
+\setlength{\headheight}{33pt}
 
 % Packages
+\usepackage[a4paper,top=3cm,bottom=2cm,left=3cm,right=3cm,marginparwidth=1.75cm]{geometry}
 \usepackage{a4wide}
 \usepackage[french]{babel}
 \usepackage[utf8]{inputenc}
 \usepackage{graphicx}
-\usepackage{titlepages}
-
-%Custom command
-\newcommand\AtUpperLeftCorner[3]{%
-\put(\LenToUnit{#1},\LenToUnit{\dimexpr\paperheight-#2}){\blap{#3}}%
-}
-
-\newcommand\AtUpperRightCorner[3]{%
-\put(\LenToUnit{\dimexpr\paperwidth-#1},\LenToUnit{\dimexpr\paperheight-#2}){\blap{\llap{#3}}}%
-}
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\usepackage[T1]{fontenc}
 
 % Document
 \begin{document}
     %Page de garde
+
+    %Info pour maketitle
+    \title{Rapport de Stage: \\ Portage de Malai pour l'environement WEB}
+    \author{Gwendal \bsc{Didot}
+    \\
+    \multicolumn{1}{p{.7\textwidth}}{\centering \vspace{0.25cm} Master 1 Informatique spécialisation Sécurité, Système et Réseaux à l'ISTIC, Université Rennes 1}
+    \\
+    \multicolumn{1}{p{.7\textwidth}}{\centering \vspace{0.25cm} Encadré par Arnaud \bsc{Blouin}}}
+
+    %Setup de la page de garde
+    \maketitle
+    \begin{center}
+        Stage réalisé du \date{15 mai 2018} au \date{31 août 2018} \\ dans l'équipe DiverSE \\ des laboratoires INRIA/IRISA \\ sur le campus de Beaulieu, Rennes
+    \end{center}
     \thispagestyle{empty}
-    \center \LARGE \textbf{\uppercase{Portage de Malai pour l'environement Web}} \\
-    \normalsize\center{\today}
-    \AtUpperLeftCorner{1.5cm}{1cm}{\includegraphics[width=4cm]{../assets/logo_istic.png}}
     \newpage
-    %Page count
-    \setcounter{page}{1}
 
+    \tableofcontents
 
-    \paragraph{ReTest}
-
-    %Biblio
-    \bibliography{main}
-    \bibliographystyle{plain}
+    \fancyhf{}
+    \pagestyle{fancy}
+    \fancyhead[L]{\includegraphics[height=1.0cm]{../assets/logo_istic.png}}
+    \fancyhead[C]{\leftmark}
+    \fancyhead[R]{\includegraphics[height=1.0cm]{../assets/logo_univ_rennes1.png}}
+    \fancyfoot[C]{\thepage/\pageref{LastPage}}
+    \newpage
+    \section{Présentation de l'entreprise}\label{sec:presentr}
+    \vspace{1cm}
+        \subsection{INRIA}\label{subsec:inria}
+            \paragraph{}
+                L'Institut Nationale de Recherche en Informatique et en Automatique (INRIA) est un établissement de recherche publique en science du numérique,
+                sous la tutelle des ministères de l'Enseignement supérieur et de la Recherche et de l'Économie et des Finances.
+                Il est composé de multiples organisation de recherche, et est séparé en différents centres de recherches autonomes à travers la France.
+    \vspace{1cm}
+    \subsection{IRISA}\label{subsec:irisa}
+            \paragraph{}
+                L'Institut de Recherche en Informatique et Systèmes Aléatoires (IRISA) est un laboratoire de recherche en informatique, automatique,
+                traitement du signal et des images et en robotique.
+                L'IRISA est un laboratoire très présent en Bretagne, et est sous la tutelles de plusieurs organismes, dont l'INRIA\@.
+    \vspace{1cm}
+    \subsection{DiverSE}\label{subsec:diverse}
+             \paragraph{}
+                L'équipe de recherche DiverSE est membre de l'IRISA et de l'INRIA. Son domaine de recherche se porte sur l'ingénierie logiciel, où elle développe de nouveaux modèles,
+                méthodes et théories permettant de répondre aux besoins causés par la diversification des façons de penser, déployer et faire évoluer les systèmes fortement axés sur les logiciels.
+                Cette équipe a pour avantage d'avoir des liens étroits avec l'industrie, ce qui se retrouves dans la façon de travailler de ces membres.
+    \newpage
+    \section{Objectif du stage}\label{sec:objsta}
+    \vspace{1cm}
+        \subsection{Présentation de Malai}\label{subsec:premal}
+            \paragraph{}
+                Les interfaces utilisateurs sont un composant essentiel pour un logiciel, mais actuellement les moyens donnés au développeur pour réaliser
+                une interface sont assez rudimentaires, demandant un développement très bas niveau, et n'offre pas de moyen de facilement réutiliser du code déjà fait.
+                Pour palier à ce problème, Malai à été créé pour permettre au développeur d'interface utilisateur de pouvoir le faire bien plus facilement, et avec un gain de temps non négligeable.
+    \vspace{1cm}
+        \subsection{Objectif du stage}\label{subsec:objsta}
+            \paragraph{}
+                Ayant vocation à être utiliser par tous développeurs d'interface utilisateur, Malai se doit d'être présent pour l'environement WEB, du simple site html/javascript au frameworks les plus complexes.
+                Mais n'était pour le moment développer que pour l'environement applicatif, avec JavaFX. Le but du stage était donc de porter le code de Malai en Java
+                vers Typescript, ainsi que réaliser des applications permettant de montrer les avantages de MalaiTS (la version WEB de Malai).
+    \newpage
+    \section{Travail réalisé}\label{sec:trarea}
+    \newpage
+    \section{Bilan du stage}\label{sec:bilsta}
 
 \end{document}
