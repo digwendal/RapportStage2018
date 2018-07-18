@@ -5,10 +5,9 @@
 
 % Preamble
 \documentclass[11pt, a4paper, pdftex]{article}
-\setlength{\headheight}{33pt}
 
 % Packages
-\usepackage[a4paper,top=3cm,bottom=2cm,left=3cm,right=3cm,marginparwidth=1.75cm]{geometry}
+\usepackage[a4paper,top=3cm,bottom=2cm,left=3cm,right=3cm,marginparwidth=1.75cm,head=61pt]{geometry}
 \usepackage{a4wide}
 \usepackage[french]{babel}
 \usepackage[utf8]{inputenc}
@@ -19,32 +18,54 @@
 
 % Document
 \begin{document}
-    %Page de garde
 
     %Info pour maketitle
     \title{Rapport de Stage: \\ Portage de Malai pour l'environement WEB}
-    \author{Gwendal \bsc{Didot}
-    \\
-    \multicolumn{1}{p{.7\textwidth}}{\centering \vspace{0.25cm} Master 1 Informatique spécialisation Sécurité, Système et Réseaux à l'ISTIC, Université Rennes 1}
-    \\
-    \multicolumn{1}{p{.7\textwidth}}{\centering \vspace{0.25cm} Encadré par Arnaud \bsc{Blouin}}}
+    \author{Gwendal \bsc{Didot}}
 
     %Setup de la page de garde
     \maketitle
-    \begin{center}
-        Stage réalisé du \date{15 mai 2018} au \date{31 août 2018} \\ dans l'équipe DiverSE \\ des laboratoires INRIA/IRISA \\ sur le campus de Beaulieu, Rennes
-    \end{center}
     \thispagestyle{empty}
+    \begin{center}
+        \vspace{0.25cm} Master 1 Informatique spécialisation Sécurité, Système et Réseaux \\ à l'ISTIC, Université Rennes 1 \\
+        \vspace{0.25cm} Encadré par Arnaud \bsc{Blouin} \\
+        \vspace{0.25cm} Stage réalisé du \date{15 mai 2018} au \date{31 août 2018} \\ \vspace{0.25cm} dans l'équipe DiverSE \\ des laboratoires INRIA/IRISA \\ sur le campus de Beaulieu, Rennes
+    \end{center}
+
+
     \newpage
-
-    \tableofcontents
-
-    \fancyhf{}
+    \setcounter{page}{1}
     \pagestyle{fancy}
+    \renewcommand{\headrulewidth}{1pt}
     \fancyhead[L]{\includegraphics[height=1.0cm]{../assets/logo_istic.png}}
     \fancyhead[C]{\leftmark}
     \fancyhead[R]{\includegraphics[height=1.0cm]{../assets/logo_univ_rennes1.png}}
     \fancyfoot[C]{\thepage/\pageref{LastPage}}
+    \section*{Remerciement}\label{sec:remerciement}
+    \paragraph{}
+    Je tiens à remercier Monsieur Arnaud \bsc{Blouin}, mon maître de stage, pour sa patience et sa pédagogie, et de m'avoir permis de découvrir l'environement WEB et ses technologies. \\
+    Je remercie aussi tous les membres de l'équipe DiverSE pour leur acceuil durant ce stage.
+    \newpage
+
+    \tableofcontents
+
+    \newpage
+
+    \section{Introduction}\label{sec:introduction}
+        \paragraph{}
+            Les premières interfaces utilisateur remonte au années 40, et on énormément évolué depuis, commencant par un système de carte perforé, aujourd'hui devenus des interfaces graphiques, tactiles, vocales.
+            Elles sont devenues une composante essentiel pour l'utilisation de logiciels ou matériels informatqiues. %pas sûr de la phrase d'accroche
+
+        \paragraph{}
+            Dans le cadre de mon Master 1 à l'Istic, j'ai souhaité réalisé ce stage car il me permettait de toucher à une partie de l'informatique que je n'avais
+            fait qu'effleurer durant ma formation universitaire.
+            De plus j'ai toujours été intéressé de savoir comment était créée une librairie informatique.
+            J'ai voulu intégrer l'équipe DiverSE des laboratoires INRIA/IRISA car sa façon de travailler me paraissait proche des méthodes utilisés dans les entreprises.
+            La perspective de pouvoir travailler sur des technologies d'avenir ma aussi motivé pour faire ce stage.
+
+        \paragraph{}
+            Dans un premier temps nous décrirons rapidement les laboratoires INRIA et IRISA, nous verrons ensuite plus en détail les objectifs de mon stage,
+            nous allons enfin finir par voir le travail que j'ai réalisé durant le stage pour pouvoir dresser un bilan de celui-ci.
     \newpage
     \section{Présentation de l'entreprise}\label{sec:presentr}
     \vspace{1cm}
@@ -73,14 +94,20 @@
                 Les interfaces utilisateurs sont un composant essentiel pour un logiciel, mais actuellement les moyens donnés au développeur pour réaliser
                 une interface sont assez rudimentaires, demandant un développement très bas niveau, et n'offre pas de moyen de facilement réutiliser du code déjà fait.
                 Pour palier à ce problème, Malai à été créé pour permettre au développeur d'interface utilisateur de pouvoir le faire bien plus facilement, et avec un gain de temps non négligeable.
+                %exemple différence avec/sans Malai ?
     \vspace{1cm}
         \subsection{Objectif du stage}\label{subsec:objsta}
             \paragraph{}
                 Ayant vocation à être utiliser par tous développeurs d'interface utilisateur, Malai se doit d'être présent pour l'environement WEB, du simple site html/javascript au frameworks les plus complexes.
                 Mais n'était pour le moment développer que pour l'environement applicatif, avec JavaFX. Le but du stage était donc de porter le code de Malai en Java
                 vers Typescript, ainsi que réaliser des applications permettant de montrer les avantages de MalaiTS (la version WEB de Malai).
+            \paragraph{}
+                Avec le développement des applications de tests de MalaiTS, j'ai rapidement rencontré des problèmes dû à la structure de l'implémentation de Malai pour Java.
+                Cela s'explique par le fait que l'environement Java et l'environement Web sont différent.
+                Le stage c'est donc aussi porté sur la recherche de solutions aux problèmes spécifiques à l'environement WEB rencontrés avec MalaiTS\@.
     \newpage
     \section{Travail réalisé}\label{sec:trarea}
+        \subsection{}
     \newpage
     \section{Bilan du stage}\label{sec:bilsta}
 
