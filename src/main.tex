@@ -15,6 +15,11 @@
 \usepackage{fancyhdr}
 \usepackage{lastpage}
 \usepackage[T1]{fontenc}
+\usepackage[toc,page]{appendix}
+\usepackage{caption}
+
+\renewcommand{\appendixtocname}{Annexes}
+\renewcommand{\appendixpagename}{Annexes}
 
 % Document
 \begin{document}
@@ -44,7 +49,7 @@
     \section*{Remerciement}\label{sec:remerciement}
     \paragraph{}
     Je tiens à remercier Monsieur Arnaud \bsc{Blouin}, mon maître de stage, pour sa patience et sa pédagogie, et de m'avoir permis de découvrir l'environement WEB et ses technologies. \\
-    Je remercie aussi tous les membres de l'équipe DiverSE pour leur acceuil durant ce stage.
+    Je remercie aussi tous les membres de l'équipe DiverSE pour leur accueil durant ce stage.
     \newpage
 
     \tableofcontents
@@ -53,8 +58,8 @@
 
     \section{Introduction}\label{sec:introduction}
         \paragraph{}
-            Les premières interfaces utilisateur remonte au années 40, et on énormément évolué depuis, commencant par un système de carte perforé, aujourd'hui devenus des interfaces graphiques, tactiles, vocales.
-            Elles sont devenues une composante essentiel pour l'utilisation de logiciels ou matériels informatqiues. %pas sûr de la phrase d'accroche
+            Les premières interfaces utilisateur remonte au années 40, et on énormément évolué depuis, commençant par un système de carte perforé, aujourd'hui devenus des interfaces graphiques, tactiles, vocales.
+            Elles sont devenues une composante essentiel pour l'utilisation de logiciels ou matériels informatiques. %pas sûr de la phrase d'accroche
 
         \paragraph{}
             Dans le cadre de mon Master 1 à l'Istic, j'ai souhaité réalisé ce stage car il me permettait de toucher à une partie de l'informatique que je n'avais
@@ -65,7 +70,7 @@
 
         \paragraph{}
             Dans un premier temps nous décrirons rapidement les laboratoires INRIA et IRISA, nous verrons ensuite plus en détail les objectifs de mon stage,
-            nous allons enfin finir par voir le travail que j'ai réalisé durant le stage pour pouvoir dresser un bilan de celui-ci.
+            nous allons finir par voir le travail que j'ai réalisé durant le stage pour pouvoir dresser un bilan de celui-ci.
     \newpage
     \section{Présentation de l'entreprise}\label{sec:presentr}
     \vspace{1cm}
@@ -107,8 +112,36 @@
                 Le stage c'est donc aussi porté sur la recherche de solutions aux problèmes spécifiques à l'environement WEB rencontrés avec MalaiTS\@.
     \newpage
     \section{Travail réalisé}\label{sec:trarea}
-        \subsection{}
+        Pour pouvoir comprendre le travail effectué, je vous suggère de lire l'annexe~\ref{sec:presmalaitech} qui donne une explication technique du fonctionnement de MalaiTS\@.
+        \subsection{Portage vers Typescript}\label{subsec:mainjob}
+            \paragraph{}
+                La tâche principal de mon stage était le portage de Java vers Typescript de Malai. %partie à finir à la fin du stage
     \newpage
     \section{Bilan du stage}\label{sec:bilsta}
+
+    \newpage
+
+    \fancyhead[C]{\huge Annexes}
+
+    \begin{appendices}
+        \section{Présentation technique de MalaiTS}\label{sec:presmalaitech}
+            Le principe général de MalaiTS peu être séparé en 3 groupes:
+            \begin{itemize}
+                \item Interaction utilisateur : Les interactions utilisateur correspondent au action de l'utilisateur sur les éléments (widgets) de l'interface utilisateur.
+                Par exemple un clique sur un bouton ou un glisser-déposer (Drag and Drop) sont des interactions utilisateur courantes.
+                Ces interactions peuvent être décrite sous la forme d'une machine à état fini (Finish State Machine ou FSM), et c'est ainsi que MalaiTS décrit les interactions.
+                Les interactions de base sont présente dans MalaiTS, mais il est possible pour un développeur de créer des interactions personnalisées. \par
+                    \begin{minipage}{\linewidth}
+                        \centering
+                        \includegraphics[height=6.0cm]{../assets/DnD.png}
+                        \captionof{figure}{FSM du Drag and Drop}
+                    \end{minipage}
+                \item Commande : Les commandes sont des actions qui seront appelé quand l'interaction utilisateur qui leur sont lié sera effectuée.
+                MalaiTS possède les commandes de base courantes, mais permet de très facilement implémenter des commandes personnalisées.
+                \item Binder : Ce système est l'intérêt principal de Malai, il permet de lier une commande avec une interaction, tous en pouvant paramétrer le binder.
+                Comme par exemple en donnant une condition pour que la commande soit effectué, ou en effectuant une commande à chaque fois que l'interaction utilisateur est mise à jour.
+            \end{itemize}
+
+    \end{appendices}
 
 \end{document}
