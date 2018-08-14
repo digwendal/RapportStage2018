@@ -27,13 +27,38 @@
 % Document
 \begin{document}
 
+    %Custom style
+
+    \pagestyle{fancy}
+    \renewcommand{\sectionmark}[1]{\markright{\thesection\ #1}}
+    \renewcommand{\subsectionmark}[1]{}
+
+    \fancypagestyle{pagedegarde}{%
+        \pagenumbering{gobble}
+        \footskip{45}
+        \fancyhead[L]{\includegraphics[height=1.5cm]{../assets/logo_istic.png}}
+        \fancyhead[R]{\includegraphics[height=1.5cm]{../assets/logo_univ_rennes1.png}}
+        \renewcommand{\headrulewidth}{0pt}
+        \fancyfoot[L]{\includegraphics[height=1.5cm]{../assets/logo_irisa.png}}
+        \fancyfoot[R]{\includegraphics[height=1.5cm]{../assets/logo_diverse.png}}
+    }
+
+    \fancypagestyle{document}{%
+        \pagenumbering{arabic}
+        \renewcommand{\headrulewidth}{1pt}
+        \fancyhead[L]{\includegraphics[height=1.0cm]{../assets/logo_istic.png}}
+        \fancyhead[C]{\rightmark}
+        \fancyhead[R]{\includegraphics[height=1.0cm]{../assets/logo_univ_rennes1.png}}
+        \fancyfoot[C]{\thepage/\pageref{LastPage}}
+    }
+
     %Info pour maketitle
     \title{Rapport de Stage: \\ Portage de Malai pour l'environement WEB}
     \author{Gwendal \bsc{Didot}}
 
     %Setup de la page de garde
     \maketitle
-    \thispagestyle{empty}
+    \thispagestyle{pagedegarde}
     \begin{center}
         \vspace{0.25cm} Master 1 Informatique spécialisation Sécurité, Système et Réseaux \\ à l'ISTIC, Université Rennes 1 \\
         \vspace{0.25cm} Encadré par M. Arnaud \bsc{Blouin} \\
@@ -43,13 +68,9 @@
 
 
     \newpage
+    \clearpage
     \setcounter{page}{1}
-    \pagestyle{fancy}
-    \renewcommand{\headrulewidth}{1pt}
-    \fancyhead[L]{\includegraphics[height=1.0cm]{../assets/logo_istic.png}}
-    \fancyhead[C]{\leftmark}
-    \fancyhead[R]{\includegraphics[height=1.0cm]{../assets/logo_univ_rennes1.png}}
-    \fancyfoot[C]{\thepage/\pageref{LastPage}}
+    \pagestyle{document}
     \section*{Remerciement}\label{sec:remerciement}
     \paragraph{}
     Je tiens à remercier Monsieur Arnaud \bsc{Blouin}, mon maître de stage, pour sa patience, sa pédagogie, et de m'avoir permis de découvrir l'environement WEB et ses technologies. \\
