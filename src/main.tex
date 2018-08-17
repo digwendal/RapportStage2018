@@ -70,9 +70,9 @@
     \clearpage
     \setcounter{page}{1}
     \pagestyle{document}
-    \section*{Remerciement}\label{sec:remerciement}
+    \section*{Remerciements}\label{sec:remerciement}
     \paragraph{}
-    Je tiens à remercier Monsieur Arnaud \bsc{Blouin}, mon maître de stage, pour sa patience, sa pédagogie, et de m'avoir permis de découvrir l'environement WEB et ses technologies. \\
+    Je tiens à remercier Monsieur Arnaud \bsc{Blouin}, mon maître de stage, pour sa patience, sa pédagogie, et pour m'avoir permis de découvrir l'environnement WEB et ses technologies. \\
     Je remercie aussi tous les membres de l'équipe DiverSE pour leur accueil durant ce stage.
     \newpage
 
@@ -82,19 +82,19 @@
 
     \section{Introduction}\label{sec:introduction}
         \paragraph{}
-            Les interfaces utilisateur sont une partie essentiel des logiciels ou matériels informatiques.
+            Les interfaces utilisateur sont une partie essentielle des logiciels ou matériels informatiques.
             Une bonne interface utilisateur est ce qui permet d'avoir une bonne expérience utilisateur.
 
         \paragraph{}
             Dans le cadre de mon Master 1 à l'Istic, j'ai souhaité réaliser ce stage car il me permettait de toucher à une partie de l'informatique que je n'avais
             qu'effleuré durant mon cursus universitaire.
-            De plus j'ai toujours été intéressé de savoir comment était créée une librairie informatique.
+            De plus, j'ai toujours été intéressé de savoir comment était créée une librairie informatique.
             J'ai voulu intégrer l'équipe DiverSE des laboratoires INRIA/IRISA car sa façon de travailler me paraissait proche des méthodes utilisées dans les entreprises.
             La perspective de pouvoir travailler sur des technologies d'avenir m'a aussi motivé pour faire ce stage.
 
         \paragraph{}
-            Dans un premier temps nous décrirons rapidement les laboratoires INRIA et IRISA, nous verrons ensuite plus en détails les objectifs de mon stage,
-            nous allons finir par voir le travail que j'ai réalisé durant le stage, afin de dresser un bilan de celui-ci.
+            Dans un premier temps, nous décrirons rapidement les laboratoires INRIA et IRISA, nous verrons ensuite plus en détail les objectifs de mon stage,
+            enfin, nous présenterons le travail réalisé durant le stage, afin de dresser un bilan de celui-ci.
     \newpage
     \section{Présentation de l'entreprise}\label{sec:presentr}
     \vspace{1cm}
@@ -102,17 +102,17 @@
         \paragraph{}
             L'Institut de Recherche en Informatique et Systèmes Aléatoires (IRISA) est un laboratoire de recherche en informatique, automatique,
             traitement du signal et des images et en robotique. Il regroupe des membres de nombreux organismes de recherche, dont l'INRIA\@.
-            L'Institut Nationale de Recherche en Informatique et en Automatique (INRIA) est un établissement de recherche publique en science du numérique,
-            sous la tutelle des ministères de l'Enseignement supérieur et de la Recherche et de l'Économie et des Finances.
+            L'Institut National de Recherche en Informatique et en Automatique (INRIA) est un établissement de recherche public en sciences du numérique,
+            sous la tutelle du Ministère de l'Enseignement supérieur et de la Recherche et celui de l'Économie et des Finances.
             Il est séparé en différents centres de recherches autonomes à travers la France.
             Les domaines de recherche de ces laboratoires sont variés, comme le génie logiciel, la sécurité informatique, l'algorithmique ou encore la réalité virtuelle et le traitements des images.
             Ces domaines sont répartis au sein de l'IRISA parmi 38 équipes de recherche.
     \vspace{1cm}
     \subsection{DiverSE}\label{subsec:diverse}
              \paragraph{}
-                L'équipe de recherche DiverSE est membre de l'IRISA et de l'INRIA. Son domaine de recherche ce porte sur l'ingénierie logiciel, où elle développe de nouveaux modèles,
+                L'équipe de recherche DiverSE est membre de l'IRISA et de l'INRIA. Son domaine de recherche se porte sur l'ingénierie logiciel, où elle développe de nouveaux modèles,
                 méthodes et théories permettant de répondre aux besoins causés par la diversification des façons de penser, déployer et faire évoluer les systèmes fortement axés sur les logiciels.
-                Cette équipe a pour avantage d'avoir des liens étroits avec l'industrie, ce qui se retrouve dans la façon de travailler de ces membres.
+                Cette équipe a pour avantage d'avoir des liens étroits avec l'industrie, ce qui se retrouve dans la façon de travailler de ses membres.
     \newpage
     \section{Objectif du stage}\label{sec:objsta}
     \vspace{1cm}
@@ -122,56 +122,56 @@
                 une interface sont assez rudimentaires, demandant un développement très bas niveau, et n'offre pas de moyen de facilement réutiliser du code.
                 Pour remédier à ce problème, Malai à été créé pour permettre au développeur d'interface utilisateur de pouvoir le faire bien plus facilement, et avec un gain de temps non négligeable.
     \vspace{1cm}
-        \subsection{Objectif du stage}\label{subsec:objsta}
+        \subsection{Objectif Principal}\label{subsec:objsta}
             \paragraph{}
-                Ayant vocation à être utilisé par tous développeurs d'interfaces utilisateur, Malai se doit d'être présent pour l'environement WEB, du simple site html et javascript aux frameworks les plus complexes.
-                Cependant Malai n'était pour le moment développer que pour l'environement applicatif, avec JavaFX. Le but du stage était donc de porter le code Java de Malai
-                vers Typescript, ainsi que réaliser des applications permettant de montrer les avantages de MalaiTS (la version WEB de Malai) par rapport au standards actuels.
+                Ayant vocation à être utilisé par tous développeurs d'interfaces utilisateur, Malai se doit d'être présent pour l'environnement WEB, du simple site html et javascript aux frameworks les plus complexes.
+                Cependant Malai n'était pour le moment développé que pour l'environnement applicatif, avec JavaFX. Le but du stage était donc de porter le code Java de Malai
+                vers Typescript, ainsi que réaliser des applications permettant de montrer les avantages de MalaiTS (la version WEB de Malai) par rapport aux standards actuels.
             \paragraph{}
-                Avec le développement des applications de tests de MalaiTS, j'ai rapidement rencontré des problèmes dû à la structure de l'implémentation de Malai pour Java,
-                cela s'explique par le fait que l'environement Java et l'environement WEB sont différent.
-                Le stage c'est donc aussi porté sur la recherche de solutions aux problèmes spécifiques à l'environement WEB rencontrés avec MalaiTS\@.
+                Avec le développement des applications de tests de MalaiTS, j'ai rapidement rencontré des problèmes dus à la structure de l'implémentation de Malai pour Java.
+                Cela s'explique par le fait que l'environnement Java et l'environnement WEB sont différents.
+                Le stage s'est donc aussi porté sur la recherche de solutions aux problèmes spécifiques à l'environnement WEB rencontrés avec MalaiTS\@.
     \newpage
     \section{Travail réalisé}\label{sec:trarea}
-        Pour pouvoir comprendre le travail effectué, je vous suggère de lire l'annexe~\ref{sec:presmalaitech} qui donne une explication technique du fonctionnement de MalaiTS\@.
+        Pour pouvoir comprendre le travail effectué, nous suggérons de lire l'annexe~\ref{sec:presmalaitech} qui donne une explication technique du fonctionnement de MalaiTS\@.
 
         \subsection{État initial}\label{subsec:travinit}
             \paragraph{}
-                Ce stage étant le portage de Malai vers l'environement WEB, les différents principes était déjà existants, je n'avais donc qu'à réécrire le code de Malai en TypeScript, ou l'adapter si besoin.
+                Ce stage ayant pour but le portage de Malai vers l'environnement WEB, les différents principes était déjà existants, je n'avais donc qu'à réécrire le code de Malai en TypeScript, ou l'adapter si besoin.
                 De plus le c\oe ur du fonctionnement de MalaiTS avait déjà été codé par mon maître de stage Arnaud Blouin.
 
         \subsection{Portage vers Typescript}\label{subsec:mainjob}
             \paragraph{}
-                Le système principal ayant déjà été implémenté, j'ai principalement réaliser le portage des interactions utilisateurs par défaut, celle qui sont proposées avec MalaiTS\@.
-                J'ai aussi rajouté plusieurs des binders par défaut et, après des observations effectuée lors de tests, j'ai modifié certaines mécaniques
+                Le système principal ayant déjà été implémenté, j'ai principalement réalisé le portage des interactions utilisateurs par défaut, celles qui sont proposées avec MalaiTS\@.
+                J'ai aussi rajouté plusieurs des binders par défaut et, suite à des observations effectuées lors de tests, j'ai modifié certaines mécaniques
                 des binders pour les rendre compatibles avec l'environnement WEB\@.
-                J'ai aussi fait le portage des tests de Malai pour les interactions utilisateur en les adaptant pour l'environement de test de MalaiTS\@.
+                J'ai aussi fait le portage des tests de Malai pour les interactions utilisateur en les adaptant pour l'environnement de test de MalaiTS\@.
 
         \subsection{Utilisation de MalaiTS}\label{subsec:travexem}
             \paragraph{}
-                Pour montrer l'intérêt d'utiliser MalaiTS pour le développement d'interface utilisateur, j'ai commencé le développement de deux application servant d'exemple.
-                Une application de création de FSM réalisée avec le framework Angular, ce qui a permis de montrer certaine limitation dans la conception de MalaiTS,
-                mais qui a aussi permis de confirmer que MalaiTS est utilisable pour créer une interface utilisateur dans l'environement WEB\@.
-                L'autre application est une application de calendrier utilisant la technologie React, ce qui ma mené à créé MalaiTS-react, une version spécifique de MalaiTS car React a un comportement particulier.
+                Pour montrer l'intérêt d'utiliser MalaiTS pour le développement d'interface utilisateur, j'ai commencé le développement de deux applications servant d'exemple.
+                Une application de création de FSM réalisée avec le framework Angular, ce qui a permis de montrer certaines limitations dans la conception de MalaiTS,
+                mais qui a aussi permis de confirmer que MalaiTS est utilisable pour créer une interface utilisateur dans l'environnement WEB\@.
+                L'autre application est une application de calendrier utilisant la technologie React, ce qui m'a mené à créer MalaiTS-react, une version spécifique de MalaiTS car React a un comportement particulier.
 
     \newpage
     \section{Bilan du stage}\label{sec:bilsta}
         \subsection{État finale}\label{subsec:etatfin}
             \paragraph{}
-                A la fin du stage, une grande partie du portage à été effectué.
-                Tous les interactions utilisateurs sont présentes et sont testées.
-                Une partie des binders on été implémentés, et sont également testés.
+                A la fin du stage, une grande partie du portage a été effectuée.
+                Toutes les interactions utilisateurs sont présentes et sont testées.
+                Une partie des binders ont été implémentés, et sont également testés.
                 La dernière grande partie du portage à réaliser est le portage des commandes par défaut.
-                Les deux applications servant d'exemple montrent que MalaiTS peu être utilisé pour créer des interface utilisateur d'application WEB, la version de développement de MalaiTS est d'ailleur disponible sur npm sous le nom \info{org.malai.ts-dev}.
-                Il serait d'ailleur intéressant de créer une application servant d'exemple uniquement en HTML/JavaScript/CSS pour observer l'intérêt de MalaiTS dans ce cas de figure.
+                Les deux applications servant d'exemple montrent que MalaiTS peut être utilisé pour créer des interfaces utilisateur d'application WEB, la version de développement de MalaiTS est d'ailleurs disponible sur npm sous le nom \info{org.malai.ts-dev}.
+                Il serait d'ailleurs intéressant de créer une application servant d'exemple uniquement en HTML/JavaScript/CSS pour observer l'intérêt de MalaiTS dans ce cas de figure.
 
         \subsection{Compétences acquises}\label{subsec:compacq}
             \paragraph{}
-                Je pense que ce stage m'à été bénéfique, car le WEB n'étant pas un des principaux sujets de mon cursus universitaire, il m'a permis de découvrir les technologies du WEB, les frameworks populaires et leur fonctionnement.
-                Grâce à ce stage j'ai acquit des connaissance sur le modèle Vue/Contrôleur/Donnée utilisé pour créer des interfaces utilisateurs, l'utilisation des frameworks servant à créer des interfaces utilisateurs pour le WEB\@.
-                Les compétences que j'ai acquis durant mon cursus m'on permis de comprendre rapidement les besoins de ce stage, et m'on permis de répondre efficacement à ces besoins.
-                Durant le stage, j'ai découvert le principe de l'intégration continue et j'ai appris des fonctionnalités avancés de git et GitHub ainsi que les différents gitflow\footnote{Ensembles de bonnes pratiques à respecter quand on utilise le gestionnaire de version Git, voir le \href{https://guides.github.com/introduction/flow/}{GitHub Flow} ou le \href{https://about.gitlab.com/2014/09/29/gitlab-flow/}{GitLab Flow}, le plus abouti selon pour moi.} existant,
-                et je pense que ces compétences sont essentiels pour un développeur et ce serait intéressant qu'elles soient enseignées dès la première année de licence.
+                Je pense que ce stage m'a été bénéfique, car le WEB n'étant pas un des principaux sujets de mon cursus universitaire, il m'a permis de découvrir les technologies du WEB, les frameworks populaires et leur fonctionnement.
+                Grâce à ce stage j'ai acquis des connaissances sur le modèle Vue/Contrôleur/Donnée utilisé pour créer des interfaces utilisateurs, l'utilisation des frameworks servant à créer des interfaces utilisateurs pour le WEB\@.
+                Les compétences que j'ai acquis durant mon cursus m'ont permis de comprendre rapidement les besoins de ce stage, et m'ont permis de répondre efficacement à ces besoins.
+                Durant le stage, j'ai découvert le principe de l'intégration continue et j'ai appris des fonctionnalités avancées de git et GitHub ainsi que les différents gitflow\footnote{Ensembles de bonnes pratiques à respecter quand on utilise le gestionnaire de version Git, voir le \href{https://guides.github.com/introduction/flow/}{GitHub Flow} ou le \href{https://about.gitlab.com/2014/09/29/gitlab-flow/}{GitLab Flow}, le plus abouti selon pour moi.} existants,
+                et je pense que ces compétences sont essentielles pour un développeur et il serait intéressant de les voir enseignées dès la première année de licence.
 
     \newpage
 
@@ -188,13 +188,13 @@
 
         \subsection{English}\label{subsec:eng}
             \paragraph{}
-                This internship is realise as the mandatory internship of the ISTIC first year Master Security, Systems and Networks university degree.
-                My supervisor is M. Arnaud \bsc{Blouin} and the internship take place in the DiverSE research team at IRISA\@.
+                This internship is performed as the mandatory internship of the ISTIC first year Master of Security, Systems and Networks university degree.
+                My supervisor is M. Arnaud \bsc{Blouin} and the internship takes place in the DiverSE research team at IRISA\@.
                 I realise the port of a part of Malai library in Java to the WEB version MalaiTS in TypeScript, the core of the library was already port by my supervisor.
-                I also create WEB applications with MalaiTS to serve as an exemple and proof-of-concept.
+                I also create WEB applications with MalaiTS to serve as an example and proof-of-concept.
 
             \paragraph{}
-                In this report I explain rhe basic of how Malai work (see appendice~\ref{sec:presmalaitech} in French), but I do not go into detail. For more information you can refer to the GitHub of \href{https://github.com/arnobl/Malai}{Malai}.
+                In this report I explain the basics of how Malai work (see appendice~\ref{sec:presmalaitech} in French), but I do not go into details. You can refer to the GitHub of \href{https://github.com/arnobl/Malai}{Malai} for further information.
 
     \newpage
 
@@ -205,8 +205,8 @@
             Le principe général de MalaiTS peu être séparé en 3 groupes:
             \begin{itemize}
                 \vspace{0.2cm}
-                \item Interaction utilisateur : Les interactions utilisateur correspondent au action de l'utilisateur sur les éléments (widgets) de l'interface utilisateur.
-                Par exemple un clique sur un bouton ou un glisser-déposer (Drag and Drop) sont des interactions utilisateur courantes.
+                \item Interaction utilisateur : Les interactions utilisateur correspondent aux actions de l'utilisateur sur les éléments (widgets) de l'interface utilisateur.
+                Par exemple un clic sur un bouton ou un glisser-déposer (Drag and Drop) sont des interactions utilisateur courantes.
                 Ces interactions peuvent être décrites sous la forme d'une machine à état fini (Finish State Machine ou FSM), et c'est ainsi que MalaiTS décrit les interactions.
                 Les interactions utilisateur les plus courantes sont présentes dans MalaiTS, mais il est possible pour un développeur de créer des interactions personnalisées. \par
                 \vspace{0.5cm}
@@ -216,10 +216,10 @@
                         \captionof{figure}{FSM du Drag and Drop}
                     \end{minipage}
                 \vspace{0.5cm}
-                \item Commande : Les commandes sont des actions qui seront appelée quand l'interaction utilisateur qui leur sont liée sera effectuée.
+                \item Commande : Les commandes sont des actions qui seront appelées quand l'interaction utilisateur qui leur est liée sera effectuée.
                 MalaiTS possède les commandes de base courantes, mais permet de très facilement implémenter des commandes personnalisées.
                 \vspace{0.2cm}
-                \item Binder : Ce système est l'intérêt principal de Malai, il permet de lier une commande avec une interaction, tous en pouvant paramétrer le binder.
+                \item Binder : Ce système est l'intérêt principal de Malai, il permet de lier une commande avec une interaction, tout en pouvant paramétrer le binder.
                 Comme par exemple en donnant une condition pour que la commande soit effectuée, ou bien en effectuant une commande à chaque fois que l'interaction utilisateur est mise à jour.
             \end{itemize}
 
