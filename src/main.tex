@@ -83,8 +83,7 @@
     \section{Introduction}\label{sec:introduction}
         \paragraph{}
             Les interfaces utilisateur sont une partie essentielle des logiciels ou matériels informatiques.
-            Une bonne interface utilisateur est ce qui permet d'avoir une bonne expérience utilisateur.
-
+            Elles sont en effet omniprésentes dans tous logiciel afin de permettre à des utilisateurs de contrôler un système.
         \paragraph{}
             Dans le cadre de mon Master 1 à l'Istic, j'ai souhaité réaliser ce stage car il me permettait de toucher à une partie de l'informatique que je n'avais
             qu'effleuré durant mon cursus universitaire.
@@ -119,12 +118,12 @@
         \subsection{Présentation de Malai}\label{subsec:premal}
             \paragraph{}
                 Les interfaces utilisateurs sont un composant essentiel pour un logiciel, mais actuellement les moyens donnés au développeur pour réaliser
-                une interface sont assez rudimentaires, demandant un développement très bas niveau, et n'offre pas de moyen de facilement réutiliser du code.
+                une interface sont assez rudimentaires, les approches actuelles demandent un développement très bas niveau, et n'offre pas de moyen de facilement réutiliser du code.
                 Pour remédier à ce problème, Malai à été créé pour permettre au développeur d'interface utilisateur de pouvoir le faire bien plus facilement, et avec un gain de temps non négligeable.
     \vspace{1cm}
         \subsection{Objectifs}\label{subsec:objsta}
             \paragraph{}
-                Ayant vocation à être utilisé par tous développeurs d'interfaces utilisateur, Malai se doit d'être présent pour l'environnement WEB, du simple site html et javascript aux frameworks les plus complexes.
+                Ayant vocation à être utilisé par des ingénieurs logiciels, Malai se doit d'être présent pour l'environnement WEB, du simple site html et javascript aux frameworks les plus complexes.
                 Cependant Malai n'était pour le moment développé que pour l'environnement applicatif, avec JavaFX. Le but du stage était donc de porter le code Java de Malai
                 vers Typescript, ainsi que réaliser des applications permettant de montrer les avantages de MalaiTS (la version WEB de Malai) par rapport aux standards actuels.
             \paragraph{}
@@ -142,10 +141,12 @@
 
         \subsection{Portage vers Typescript}\label{subsec:mainjob}
             \paragraph{}
-                Le système principal ayant déjà été implémenté, j'ai principalement réalisé le portage des interactions utilisateurs par défaut, celles qui sont proposées avec MalaiTS\@.
-                J'ai aussi rajouté plusieurs des binders par défaut et, suite à des observations effectuées lors de tests, j'ai modifié certaines mécaniques
+                Le système principal ayant déjà été implémenté, j'ai principalement réalisé le portage des interactions utilisateurs par défaut, celles qui sont proposées avec MalaiTS (voir annexe~\ref{sec:listint}).
+                MalaiTS, comme Malai, utilise un système de binder pour relier une interaction utilisateur sur un élément de l'interface utilisateur avec une commande à effectuer (voir annexe~\ref{sec:presmalaitech}).
+                J'ai donc rajouté plusieurs des binders par défaut et, suite à des observations effectuées lors de tests, j'ai modifié certaines mécaniques
                 des binders pour les rendre compatibles avec l'environnement WEB\@.
                 J'ai aussi fait le portage des tests de Malai pour les interactions utilisateur en les adaptant pour l'environnement de test de MalaiTS\@.
+                Pour un exemple de l'utilisation de MalaiTS dans une Interface Homme Machine basique, vous pouvez vous référer à l'annexe~\ref{sec:expmalai}.
 
         \subsection{Utilisation de MalaiTS}\label{subsec:travexem}
             \paragraph{}
@@ -221,6 +222,69 @@
                 \vspace{0.2cm}
                 \item Binder : Ce système est l'intérêt principal de Malai, il permet de lier une commande avec une interaction, tout en pouvant paramétrer le binder.
                 Comme par exemple en donnant une condition pour que la commande soit effectuée, ou bien en effectuant une commande à chaque fois que l'interaction utilisateur est mise à jour.
+            \end{itemize}
+        \newpage
+        \section{Exemple d'Interface Homme-Machine utilisant MalaiTS}\label{sec:expmalai}
+            \paragraph{}
+                Pour cet exemple nous allons utiliser une application React très simple, elle possède cette interface Homme Machine : \\
+        \vspace{0.5cm}
+        \begin{minipage}{\linewidth}
+            \centering
+            \includegraphics[height=6.0cm]{../assets/exempleinit.png}
+            \captionof{figure}{État initial de l'application}
+        \end{minipage}
+        \paragraph{}
+            Quand on appuie sur le bouton Test, l'application change d'état et affiche ceci : \\
+        \vspace{0.5cm}
+        \begin{minipage}{\linewidth}
+            \centering
+            \includegraphics[height=6.0cm]{../assets/exempleend.png}
+            \captionof{figure}{État final de l'application}
+        \end{minipage}
+        \paragraph{}
+            Pour réaliser cela, on utilise la fonction de MalaiTS suivante : \\
+        \info{buttonBinder<AnonCmd>(i => new AnonCmd(() => \{ \\
+        const newElem = document.createElement('div'); \\
+        newElem.setAttribute("class", "testRender"); \\
+        newElem.innerText = "MalaiTS fonctionne !"; \\
+        document.body.appendChild(newElem); \\
+        \})).on(this.refButton.current).bind();}
+        \paragraph{}
+            Ici buttonBinder est une fonction permettant de créer un binder spécifique à l'élément HTML \info{<button>}, elle permet d'aider la création de binder.
+            AnonCmd() est une commande de MalaiTS permettant de créer des commandes anonymes.
+            Elle est utile quand on veut créer des commandes basiques et ne nécessitant pas la création d'une classe spécifique.
+            Ici la commande permet de créer un élément HTML \info{<div>} servant à l'affichage du message "MalaiTS fonctionne !".
+            On peu voir l'utilisation de la routine on(), qui permet de spécifier sur quel élément de l'interface on veut bind l'interaction (dans notre exemple le bouton 'Test').
+            Et enfin on utilise la routine bind(), qui permet de relier la commande, l'élément de l'interface et l'interaction.
+        \paragraph{}
+            Quand l'utilisateur clic sur le bouton 'Test', cela créé un évènement DOM (\href{https://developer.mozilla.org/en-US/docs/Web/Events}{DOM Events}), le binder signale l'évenement créé à l'interaction, qui en fonction du type de l'évènement,
+            décide de mettre à jour le FSM qui lui est associé (voir annexe~\ref{sec:presmalaitech}).
+            Quand l'interaction est terminée, ici après avoir cliqué sur le bouton, la commande associée à l'interaction par le binder est exécutée, ici la création de la \info{<div>} contenant "MalaiTS fonctionne !".
+
+
+        \newpage
+        \section{Liste des interactions utilisateur par défaut de MalaiTS}\label{sec:listint}
+            \begin{itemize}
+                \item BoxChecked : l'interaction correspondant à un clic sur un élément HTML \info{<input>} de type checkbox.
+                \item ButtonPressed : l'interaction correspondant à un clic sur un élément HTML \info{<button>}.
+                \item ChoiceBoxSelected : l'interaction correspondant à un clic sur un élément HTML \info{<select>}.
+                \item Click : l'interaction qui consiste à faire un clic avec la souris.
+                \item ColorPicked : l'interaction correspondant à un clic sur un élément HTML \info{<input>} de type color.
+                \item ComboBoxSelected : l'interaction correspondant à un clic sur un élément HTML \info{<input>} de type list.
+                \item DatePicked : l'interaction correspondant à un clic sur un élément HTML \info{<input>} de type date.
+                \item DnD (Drag and Drop) : l'interaction correspondant à un glisser-déposer d'un élément de l'interface vers un autre, par exemple un élément graphique vers un canvas.
+                \item DoubleClick : l'interaction qui consiste à faire deux clic avec la souris sur le même élément de l'interface.
+                \item DragLock : l'interaction correspondant à un double clic sur élément de l'interface, un déplacement avec la souris de l'élément ou d'un clone, et un un double clique pour déposer l'élémnt à l'endroit de la souris.
+                \item HyperLinkClicked : l'interaction qui consiste à faire un clic avec la souris sur un lien internet.
+                \item KeyPressed : l'interaction qui consiste à presser une touche du clavier.
+                \item KeysPressed : l'interaction qui consiste à presser plusieurs touches du clavier (utile pour créer des raccourcis personnalisés).
+                \item KeyTyped : l'interaction qui consiste à presser et relâcher une touche du clavier.
+                \item MenuButtonPressed : expérimental, cette interaction consiste à utiliser l'élément HTML \info{<menu>}, qui n'est pas encore implémenté dans les browsers actuels.
+                \item Press : l'interaction consistant à presser un bouton de la souris.
+                \item Scroll : l'interaction qui consiste à dérouler un élément de l'interface.
+                \item SpinnerChanged : l'interaction correspondant à un clic sur un élément HTML \info{<input>} de type number.
+                \item TextInputChanged : l'interaction correspondant à arrêter d'entrer du texte dans un élément HTML \info{<input>} de type text ou dans un élément HTML \info{<textarea>}.
+                \item WindowClosed : l'interaction correspondant à la fermeture d'une fenêtre par l'utilisateur.
             \end{itemize}
 
     \end{appendices}
